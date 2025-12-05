@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CS586Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fed517a2f0375c4d9d68785a8dedba93b25d1e76")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59f9f2278b0c64cb5059b550a61d215f503c55fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("CS586Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CS586Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

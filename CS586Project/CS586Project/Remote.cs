@@ -7,43 +7,58 @@ namespace CS586Project
     {
         private iTV tv;
 
+        private iCommand powerCommand;
+        private iCommand volumeUpCommand;
+        private iCommand volumeDownCommand;
+        private iCommand channelUpCommand;
+        private iCommand channelDownCommand;
+        private iCommand muteToggleCommand;
+
         public Remote(iTV tv)
         {
             this.tv = tv;
+            powerCommand = new PowerCommand(tv);
+            volumeUpCommand = new VolumeUpCommand(tv);
+            volumeDownCommand = new VolumeDownCommand(tv);
+            channelUpCommand = new ChannelUpCommand(tv);
+            channelDownCommand = new ChannelDownCommand(tv);
+            muteToggleCommand = new MuteCommand(tv);
         }
 
         public void Power()
         {
-            tv.PowerToggle();
+            powerCommand.Execute();
         }
 
         public void VolumeUp()
         {
-            tv.VolumeUp();
+            volumeUpCommand.Execute();
         }
         public void VolumeDown()
         {
-            tv.VolumeDown();
+            volumeDownCommand.Execute();
         }
         public void ChannelUp()
         {
-            tv.ChannelUp();
+            channelUpCommand.Execute();
         }
         public void ChannelDown()
         {
-            tv.ChannelDown();
+            channelDownCommand.Execute();
         }
         public void ChannelByNum(int num)
         {
-            tv.ChannelByNum(num);
+            SetChannelCommand setChannel = new SetChannelCommand(tv, num);
+            setChannel.Execute();
         }
         public void MuteToggle()
         {
-            tv.MuteToggle();
+            muteToggleCommand.Execute();
         }
         public void Open(string app)
         {
-            tv.Open(app);
+            OpenAppCommand openApp = new OpenAppCommand(tv, app);
+            openApp.Execute();
         }
 
         public virtual void showStatus()

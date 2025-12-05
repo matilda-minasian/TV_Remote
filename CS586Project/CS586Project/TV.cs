@@ -71,35 +71,39 @@ namespace CS586Project
 
         public virtual void ChannelUp()
         {
-            if (channelStatus < 150 && powerStatus)
+            if (!powerStatus)
+            {
+                Console.WriteLine("TV Power is off. Turn on TV.");
+                return;
+            }
+
+            if (channelStatus < 150)
             {
                 Console.WriteLine($"The channel is now {++channelStatus}");
             }
-            else if (channelStatus > 150 && powerStatus)
+            else
             {
                 Console.WriteLine("Channel does not exist. Channel can only go up to 150.");
             }
-            else
-            {
-                Console.WriteLine("TV Power is off. Turn on TV.");
-            }
-
         }
         public virtual void ChannelDown()
         {
-            if (channelStatus > 1 && powerStatus)
+            if (!powerStatus)
+            {
+                Console.WriteLine("TV Power is off. Turn on TV.");
+                return;
+            }
+
+            if (channelStatus > 1)
             {
                 Console.WriteLine($"The channel is now {--channelStatus}");
             }
-            else if (channelStatus < 1 && powerStatus)
+            else
             {
                 Console.WriteLine($"Channel can not go lower. Channel is still {channelStatus}");
             }
-            else
-            {
-                Console.WriteLine("TV Power is off. Turn on TV.");
-            }
         }
+
         public virtual void ChannelByNum(int num)
         {
             if (num > 0 && num <= 150 && powerStatus)
