@@ -2,7 +2,7 @@ using System;
 
 namespace CS586Project
 {
-    public interface iTV
+    public interface iTV : iTVSubject
     {
         void PowerToggle();
         void VolumeUp();

@@ -31,6 +31,7 @@ namespace CS586Project
                     Console.WriteLine("Entered Smart TV.");
                 }
             }
+            Notify();
         }
 
         public override void Open(string app)
@@ -44,6 +45,8 @@ namespace CS586Project
             {
                 Console.WriteLine("App not available");
             }
+
+            Notify();
         }
 
 

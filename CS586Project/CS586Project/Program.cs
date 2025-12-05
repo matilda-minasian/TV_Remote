@@ -11,7 +11,11 @@ namespace TVRemoteApp
         {
             iTV tv = ChooseTV();
 
+
             Remote remote = new Remote(tv);
+
+            var statusDisplay = new TVStatusDisplay();
+            tv.Attach(statusDisplay);
             bool running = true;
 
             while (running)
@@ -50,6 +54,7 @@ namespace TVRemoteApp
                     case "8":
                         tv = ChooseTV();
                         remote = new Remote(tv);
+                        tv.Attach(statusDisplay);
                         break;
                     case "9":
                         Console.Write("Enter app name: ");

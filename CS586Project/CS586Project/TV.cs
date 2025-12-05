@@ -10,6 +10,25 @@ namespace CS586Project
         public int channelStatus { get; protected set; }
         public bool muteStatus { get; protected set; }
 
+        private List<iTVObserver> observers = new List<iTVObserver>();
+
+        public void Attach(iTVObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void Detach(iTVObserver observer)
+        {
+            observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (var observer in observers)
+            {
+                observer.Update(this);
+            }
+        }
         public TV()
         {
             powerStatus = false;
@@ -31,6 +50,8 @@ namespace CS586Project
                 Console.WriteLine("TV is on.");
             }
 
+            Notify();
+
         }
 
         public virtual void VolumeUp()
@@ -38,6 +59,7 @@ namespace CS586Project
             if (powerStatus && !muteStatus && volumeStatus < 100)
             {
                 Console.WriteLine($"The volume is now {++volumeStatus}");
+
             }
             else if (powerStatus && muteStatus)
             {
@@ -47,6 +69,8 @@ namespace CS586Project
             {
                 Console.WriteLine("The tv is off.");
             }
+
+            Notify();
         }
 
         public virtual void VolumeDown()
@@ -54,6 +78,7 @@ namespace CS586Project
             if (powerStatus && !muteStatus && volumeStatus >= 1)
             {
                 Console.WriteLine($"The volume is now {--volumeStatus}");
+
             }
             else if (powerStatus && !muteStatus && volumeStatus == 0)
             {
@@ -67,6 +92,8 @@ namespace CS586Project
             {
                 Console.WriteLine("The tv is off.");
             }
+
+            Notify();
         }
 
         public virtual void ChannelUp()
@@ -80,11 +107,14 @@ namespace CS586Project
             if (channelStatus < 150)
             {
                 Console.WriteLine($"The channel is now {++channelStatus}");
+
             }
             else
             {
                 Console.WriteLine("Channel does not exist. Channel can only go up to 150.");
             }
+
+            Notify();
         }
         public virtual void ChannelDown()
         {
@@ -97,11 +127,13 @@ namespace CS586Project
             if (channelStatus > 1)
             {
                 Console.WriteLine($"The channel is now {--channelStatus}");
+
             }
             else
             {
                 Console.WriteLine($"Channel can not go lower. Channel is still {channelStatus}");
             }
+            Notify();
         }
 
         public virtual void ChannelByNum(int num)
@@ -109,6 +141,7 @@ namespace CS586Project
             if (num > 0 && num <= 150 && powerStatus)
             {
                 channelStatus = num;
+
             }
             else if (num > 150 && powerStatus)
             {
@@ -122,6 +155,8 @@ namespace CS586Project
             {
                 Console.WriteLine("TV Power is off. Turn on TV.");
             }
+
+            Notify();
         }
         public virtual void MuteToggle()
         {
@@ -133,7 +168,9 @@ namespace CS586Project
             else
             {
                 Console.WriteLine($"The TV is now unmuted. The volume is now {volumeStatus}");
+
             }
+            Notify();
         }
 
         public virtual void currentStatus()
@@ -163,6 +200,7 @@ namespace CS586Project
         public virtual void Open(string app)
         {
             Console.WriteLine("This TV does not support apps.");
+            Notify();
         }
     }
 }
