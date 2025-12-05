@@ -13,6 +13,7 @@ namespace CS586Project
         private iCommand channelUpCommand;
         private iCommand channelDownCommand;
         private iCommand muteToggleCommand;
+        private iCommand showStatusCommand;
 
         public Remote(iTV tv)
         {
@@ -23,6 +24,7 @@ namespace CS586Project
             channelUpCommand = new ChannelUpCommand(tv);
             channelDownCommand = new ChannelDownCommand(tv);
             muteToggleCommand = new MuteCommand(tv);
+            showStatusCommand = new ShowStatusCommand(tv);
         }
 
         public void Power()
@@ -63,7 +65,7 @@ namespace CS586Project
 
         public virtual void showStatus()
         {
-            tv.currentStatus();
+            showStatusCommand.Execute();
         }
 
     }
