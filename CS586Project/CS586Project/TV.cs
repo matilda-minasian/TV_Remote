@@ -3,7 +3,7 @@ using System.Threading.Channels;
 
 namespace CS586Project
 {
-    public class TV : TVInterface
+    public class TV : iTV
     {
         public bool powerStatus { get; protected set; }
         public int volumeStatus { get; protected set; }

@@ -9,10 +9,7 @@ namespace TVRemoteApp
     {
         static void Main(string[] args)
         {
-            TV regTV = new TV();
-            SmartTV smartTV = new SmartTV();
-            TVInterface tv = ChooseTV(regTV, smartTV);
-
+            iTV tv = ChooseTV();
 
             Remote remote = new Remote(tv);
             bool running = true;
@@ -51,10 +48,9 @@ namespace TVRemoteApp
                         remote.MuteToggle();
                         break;
                     case "8":
-                        tv = ChooseTV(regTV, smartTV);
+                        tv = ChooseTV();
                         remote = new Remote(tv);
                         break;
-
                     case "9":
                         Console.Write("Enter app name: ");
                         string app = Console.ReadLine() ?? string.Empty;
@@ -72,20 +68,31 @@ namespace TVRemoteApp
         }
 
 
-        static TVInterface ChooseTV(TV regTV, SmartTV smartTV)
+        static iTV ChooseTV()
         {
             Console.WriteLine("\nChoose TV Mode:");
             Console.WriteLine("1) Basic TV");
             Console.WriteLine("2) Smart TV");
             Console.Write("Enter choice: ");
             string choice = Console.ReadLine() ?? string.Empty;
-            if (choice == "2")
-            {
-                smartTV.PowerToggle();
-                smartTV.SmartModeToggle();
 
+            TVType type;
+
+            if (choice == "1")
+            {
+                type = TVType.Basic;
             }
-            return choice == "1" ? (TVInterface)regTV : (TVInterface)smartTV;
+            else if (choice == "2")
+            {
+                type = TVType.Smart;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Defaulting to Basic TV.");
+                type = TVType.Basic;
+            }
+
+            return TVFactory.CreateTV(type);
 
         }
     }

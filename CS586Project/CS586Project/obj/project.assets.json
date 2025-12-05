@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mally\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\CS586Project.csproj",
+      "projectUniqueName": "C:\\Users\\mally\\OneDrive\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\CS586Project.csproj",
       "projectName": "CS586Project",
-      "projectPath": "C:\\Users\\mally\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\CS586Project.csproj",
+      "projectPath": "C:\\Users\\mally\\OneDrive\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\CS586Project.csproj",
       "packagesPath": "C:\\Users\\mally\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mally\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\obj\\",
+      "outputPath": "C:\\Users\\mally\\OneDrive\\Desktop\\CS586_Project\\CS586Project\\CS586Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mally\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,9 +5,9 @@ namespace CS586Project
 {
     public class Remote
     {
-        private TVInterface tv;
+        private iTV tv;
 
-        public Remote(TVInterface tv)
+        public Remote(iTV tv)
         {
             this.tv = tv;
         }
